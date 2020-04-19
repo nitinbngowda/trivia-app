@@ -1,0 +1,18 @@
+<div class="container main">
+  <div class="welcome">
+    <div class="headings">
+      <h6>
+        Welcome To Trivia App
+      </h6>
+      <h6>
+        Enter Your Name To Continue
+      </h6>
+    </div>
+    <div>
+      <input (keyup.enter)="continue()" [(ngModel)]="name" id="name" type="text" placeholder="Enter Your Name" />
+      <button class="waves-effect waves-light btn blue nextBtn" (click)="continue()" type="button">NEXT</button>
+      <button class="waves-effect waves-light btn blue nextBtn" (click)="showHistory()" type="button">HISTORY</button>
+
+    </div>
+  </div>
+</div>

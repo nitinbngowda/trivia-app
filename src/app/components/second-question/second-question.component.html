@@ -1,0 +1,58 @@
+<div class="container main">
+  <div *ngIf="question" class="welcome">
+    <div>
+      <h5>
+        {{question.question}}
+      </h5>
+    </div>
+
+    <!-- displaying checkbox if question accepts multiple answers or else radio button -->
+    <div *ngIf="question.multipleSelect;else radio">
+      <p *ngFor="let option of question.options">
+        <label>
+          <input value="{{option}}" (change)="setMultiple($event)" class="" type="checkbox" />
+          <span>{{option}}</span>
+        </label>
+      </p>
+    </div>
+
+    <ng-template #radio>
+      <div *ngIf="question.multipleSelect">
+        <p *ngFor="let option of question.options">
+          <label>
+            <input value="{{option}}" (change)="setSingle($event)" class="with-gap" name="group1" type="radio" />
+            <span>{{option}}</span>
+          </label>
+        </p>
+      </div>
+    </ng-template>
+
+  </div>
+  <button class="waves-effect waves-light btn blue nextBtn" (click)="openSummary()" type="button">Next</button>
+</div>
+
+
+
+<!-- Modal Trigger -->
+<!-- <a class="waves-effect waves-light btn modal-trigger" href="#modal1">Modal</a> -->
+
+<!-- Modal Structure -->
+<div id="modal1" class="modal modal-fixed-footer">
+  <div *ngIf="results" class="modal-content">
+    <h5>Summary</h5>
+
+    <div>
+      <p>Hello {{results.name}}</p>
+      <p>Here are the answers selected:</p>
+      <div *ngFor="let qa of results.answeredQuestions">
+        <h5>{{qa.question}}</h5>
+        <p>Answer : {{qa.selectedAnswers}}</p>
+      </div>
+    </div>
+
+  </div>
+  <div class="modal-footer">
+    <a (click)="showHistory()" class="modal-close waves-effect waves-blue btn-flat">History</a>
+    <a (click)="finish()" class="modal-close waves-effect waves-blue btn-flat">Finish</a>
+  </div>
+</div>

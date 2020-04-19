@@ -1,0 +1,18 @@
+<div class="container main">
+    <div *ngIf="question" class="welcome">
+        <div>
+            <h5>
+                {{question.question}}
+            </h5>
+        </div>
+        <div>
+            <p *ngFor="let option of question.options">
+                <label>
+                    <input value="{{option}}" (change)="setAnswer($event)" class="with-gap" name="group1" type="radio" />
+                    <span>{{option}}</span>
+                </label>
+            </p>
+        </div>
+    </div>
+    <button class="waves-effect waves-light btn blue nextBtn" (click)="next()" type="button">Next</button>
+</div>

@@ -1,0 +1,18 @@
+<div class="history">
+    <div class="card" *ngFor="let game of history">
+        <div>
+            Date: {{game.date | date:'medium'}}
+        </div>
+        <div>
+            Name : {{game.name}}
+        </div>
+        <div *ngFor="let qa of game.answeredQuestions">
+            <div>
+                {{qa.question}}
+            </div>
+            <div>
+                Answer: {{qa.selectedAnswers}}
+            </div>
+        </div>
+    </div>
+</div>

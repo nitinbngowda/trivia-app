@@ -1,0 +1,17 @@
+.history {
+    margin-top: 2%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+.history div {
+    margin: 6px;
+}
+
+
+.history > div {
+    margin: 8px;
+    padding: 6px;
+    border-radius: 12px;
+}
